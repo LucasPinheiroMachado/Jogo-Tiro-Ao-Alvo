@@ -35,6 +35,13 @@
   }
 }
 
+.obs {
+  color: rgba(128, 128, 128, 0.615);
+  margin-bottom: 10px;
+  position: relative;
+  bottom: 10px;
+}
+
 /* Aplicando estilos globais */
 @layer base {
   * {
