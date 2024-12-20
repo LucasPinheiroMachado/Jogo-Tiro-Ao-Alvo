@@ -142,6 +142,15 @@ export default function Game({ onGameOver }: GameProps) {
       })
     )
   }
+
+  const handleBoth = (event: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    // Verificar o tipo do evento para saber qual função chamar
+    if (event.type === 'click') {
+      handleCanvasClick(event as React.MouseEvent<HTMLCanvasElement>);
+    } else if (event.type === 'touchstart') {
+      handleCanvasTouch(event as React.TouchEvent<HTMLCanvasElement>);
+    }
+  }
   
 
   return (
@@ -154,8 +163,8 @@ export default function Game({ onGameOver }: GameProps) {
         ref={canvasRef}
         width={canvasWidth}
         height={canvasHeight}
-        onClick={handleCanvasClick}
-        onTouchStart={handleCanvasTouch}
+        onClick={handleBoth}
+        onTouchStart={handleBoth}
         className="border border-white cursor-crosshair max-w-full h-auto"
       />
     </div>
